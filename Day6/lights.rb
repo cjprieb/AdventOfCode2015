@@ -49,12 +49,14 @@ class Lights
 		sum
 	end
 	def print_lights
-		puts "Printing lights\n"
+		puts "Saving lights\n"
+		f = File::open("output.txt", mode="w")
 		@grid.each do |row|
 			row.each do |cell|
-				print cell ? "•" : " "
+				f.write(cell ? "•" : " ")
 			end
-			print "\n"
+			f.write("\n")
 		end
+		f.close
 	end
 end
